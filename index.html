@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8"  />
-    <title>chris wanstrath</title>
+    <title>doug tangren</title>
     <style type="text/css">
       * {
         margin: 0;
@@ -12,37 +12,76 @@
       }
 
       body {
-        /* http://flickr.com/photos/cgstopgo/2199917653/ */
-        background: url(defunkt.jpg) no-repeat;
-        height: 1024px;
+        background: url(soft.png) no-repeat top right;
+        text-align: right;
+        font-family: Lucida Grande;
+      }
+
+      h1 {
+        color:#f5f5f5;
+        font-size: 150px;
+        font-weight: normal;
+        float:left;
+        letter-spacing:-5px;
+        margin:300px 0 170px 10%;
+        text-align:center;
+      }
+      
+      h1 span {
+        color:#333;
+        font-weight:bold;
+      }
+      
+      h1 span:hover {
+        background:#FF2997;
+        color:#fff;
+      }
+      
+      hr {
+        border:1px solid #f5f5f5;
+      }
+      
+      #info {
+        float:right;
+        margin:260px 1em 0 0;
+        width:200px;
+        height:90%;
+      }
+      
+      #thanks {
+        clear:both;
+        font-size:smaller;
+        margin:0 1em;
+      }
+      
+      #thanks span {
+        color:#ff2997;
       }
 
       ul {
-        position: absolute;
-        left: 850px;
-        top: 30px;
         list-style-type: none;
-      }
-
-      #repos {
-        top: 130px;
+        margin-top:1em;
       }
 
       a {
-        color: #bbb;
-        font-family: Lucida Grande;
+        color: #c9c;
         line-height: 18px;
       }
+      
+      a:hover {
+        color:#ff2997;
+      }
 
-      h3 {
-        font-family: Lucida Grande;      
+     .site, .site:hover { 
+       color:#666; 
+       text-decoration:none; 
       }
     </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">
       $(function() {
         var limit = 10        // how many repos to list
-        var login = 'defunkt' // your username
+        var login = 'softprops' // your username
 
         $.getJSON('http://github.com/api/v1/json/' + login + '?callback=?', function(data) {
           var repos = $.grep(data.user.repositories, function() {
@@ -61,14 +100,33 @@
     </script>
   </head>
   <body>
-    <a href="http://github.com/defunkt/defunkt.github.com"><img style="position: absolute; top: 0; left: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png" alt="Fork me on GitHub" /></a>            
-    <ul>
-      <li><a href="http://twitter.com/defunkt">twitter.com/defunkt</a></li>
-      <li><a href="http://github.com/defunkt">github.com/defunkt</a></li>
-      <li><a href="mailto:chris@ozmm.org">chris</a>@<a href="http://ozmm.org">ozmm.org</a></li>
-    </ul>
-    <ul id="repos">
-      <li><h3>repositories</h3></li>
-    </ul>
+    <a href="http://github.com/softprops/softprops.github.com"><img style="position: absolute; top: 0; left: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub" /></a> 
+    <h1> %Q( <span>hi</span> ) </h1>
+    <div id="info">           
+      <ul>
+        <li>
+          <a class="site" href="http://twitter.com/softprops">
+            twitter.com</a>/<a href="http://twitter.com/softprops">softprops
+          </a>
+        </li>
+        <li>
+          <a class="site" href="http://github.com/softprops">
+            github.com</a>/<a href="http://twitter.com/softprops">softprops
+          </a>
+        </li>
+        <li>
+          <a class="site" href="http://www.last.fm/user/softprops">
+            last.fm/user</a>/<a href="http://www.last.fm/user/softprops">softprops
+          </a>
+        </li>
+      </ul>
+      <ul id="repos">
+        <li><h3>repositories</h3></li>
+      </ul>
+    </div>
+    <div id="thanks">
+     <hr/>
+      thanks <a href="http://www.github.com">octocat</a> <span>&hearts;</span>
+    </div>
   </body>
 </html>
