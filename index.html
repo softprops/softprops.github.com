@@ -4,129 +4,104 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-    <title>doug tangren</title>
+    <title>doug tangren.git</title>
     <style type="text/css">
-      * {
-        margin: 0;
-        padding: 0;
-      }
+      * { margin: 0; padding: 0; }
+      
+      body { background: url(soft.png) no-repeat top right; text-align: right; font-family: Lucida Grande; }
 
-      body {
-        background: url(soft.png) no-repeat top right;
-        text-align: right;
-        font-family: Lucida Grande;
-      }
+      h1 { color:#f5f5f5; font-size: 150px; font-weight: normal;float:left; letter-spacing:-5px; margin:300px 0 170px 2%; text-align:center; }
+      
+      h1 a { color:#333; font-weight:bold; }
+      
+      h1 span:hover { background:#02EAFF; color:#fff; }
+      
+      hr { border:1px solid #f5f5f5; }
+      
+      ul { list-style-type: none; margin-top:1em; }
+      
+      li { margin:.6em 0; }
 
-      h1 {
-        color:#f5f5f5;
-        font-size: 150px;
-        font-weight: normal;
-        float:left;
-        letter-spacing:-5px;
-        margin:300px 0 170px 10%;
-        text-align:center;
-      }
+      a:link, a:visited { background:#8ADCFF; color: #fff; line-height: 18px; padding:.25em; text-decoration:none; }
       
-      h1 span {
-        color:#333;
-        font-weight:bold;
-      }
+      a:hover { background:#222; }
       
-      h1 span:hover {
-        background:#FF2997;
-        color:#fff;
-      }
+      #info { float:right; margin:180px 1em 0 0; width:200px; height:90%; }
       
-      hr {
-        border:1px solid #f5f5f5;
-      }
+      #thanks { clear:both; font-size:smaller; height:32px; margin:0 1em; }
       
-      #info {
-        float:right;
-        margin:260px 1em 0 0;
-        width:200px;
-        height:90%;
-      }
+      #thanks span { color:#ff2997; }
       
-      #thanks {
-        clear:both;
-        font-size:smaller;
-        margin:0 1em;
-      }
-      
-      #thanks span {
-        color:#ff2997;
-      }
+      #thanks a { background:none; }
 
-      ul {
-        list-style-type: none;
-        margin-top:1em;
-      }
-
-      a {
-        color: #c9c;
-        line-height: 18px;
-      }
-      
-      a:hover {
-        color:#ff2997;
-      }
-
-     .site, .site:hover { 
-       color:#666; 
-       text-decoration:none; 
-      }
+     .site:link, .site:visited, .site:hover {  background:#fff; color:#D7EEF8; text-decoration:none; }
     </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-      $(function() {
-        var limit = 10        // how many repos to list
-        var login = 'softprops' // your username
-
-        $.getJSON('http://github.com/api/v1/json/' + login + '?callback=?', function(data) {
-          var repos = $.grep(data.user.repositories, function() {
-            return !this.fork
-          })
-
-          repos.sort(function(a, b) {
-            return b.watchers - a.watchers
-          })
-
-          $.each(repos.slice(0, limit), function() {
-            $('#repos').append('<li><a href="' + this.url + '">' + this.name + '</a></li>')
-          })
-        })        
-      })
-    </script>
   </head>
   <body>
     <a href="http://github.com/softprops/softprops.github.com"><img style="position: absolute; top: 0; left: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub" /></a> 
-    <h1> %Q( <span>hi</span> ) </h1>
+    <h1> 
+      push( <a href="http://github.com/softprops" rel="me">(>’-’)></a> ) 
+    </h1>
     <div id="info">           
-      <ul>
+      
+      <ul id="repos">
         <li>
-          <a class="site" href="http://twitter.com/softprops">
-            twitter.com</a>/<a href="http://twitter.com/softprops">softprops
+          <h3>repositories</h3>
+        </li>
+      </ul>
+      
+      <ul>
+        <li><h3>MeRIs</h3></li>
+        <li>
+          <a href="http://lessis.me">
+            lessis.me
           </a>
         </li>
         <li>
           <a class="site" href="http://github.com/softprops">
-            github.com</a>/<a href="http://twitter.com/softprops">softprops
+            github.com</a>/<a href="http://github.com/softprops" rel="me">softprops
+          </a>
+        </li>
+        <li>
+          <a class="site" href="http://twitter.com/softprops">
+            twitter.com</a>/<a href="http://twitter.com/softprops" rel="me">softprops
           </a>
         </li>
         <li>
           <a class="site" href="http://www.last.fm/user/softprops">
-            last.fm/user</a>/<a href="http://www.last.fm/user/softprops">softprops
+            last.fm/user</a>/<a href="http://www.last.fm/user/softprops" rel="me">softprops
           </a>
         </li>
       </ul>
-      <ul id="repos">
-        <li><h3>repositories</h3></li>
-      </ul>
+      
     </div>
     <div id="thanks">
-     <hr/>
-      thanks <a href="http://www.github.com">octocat</a> <span>&hearts;</span>
+      <hr/>
+      <a href="http://www.github.com">
+        <img alt="octocat" title="octocat" src="octocat-tiny.png"/>
+      </a> 
+      <span>&hearts;</span>
     </div>
+     <script type="text/javascript">
+        $(function() {
+          var limit = 10        // how many repos to list
+          var login = 'softprops' // your username
+
+          $.getJSON('http://github.com/api/v2/json/repos/show/' + login + '?callback=?', function(data) {
+            var repos = $.grep(data.repositories, function() {
+              return !this.fork
+            })
+
+            repos.sort(function(a, b) {
+              return b.watchers - a.watchers
+            })
+
+            $.each(repos.slice(0, limit), function() {
+              $('#repos').append(['<li><a href="', this.url, '" rel="repo">', this.name, '</a></li>'].join(''))
+            })
+          })        
+        })
+    </script>
   </body>
 </html>
